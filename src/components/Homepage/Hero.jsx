@@ -1,5 +1,6 @@
 import { Button } from '@heroui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { BiShoppingBag, BiUpload } from 'react-icons/bi';
 import { FaTruck } from 'react-icons/fa';
@@ -25,8 +26,8 @@ const Hero = () => {
               Upload your prescription, place your order, and receive genuine medicines and essential products delivered safely to your home.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Button variant='secondary'  size="lg" className="hover:bg-teal-50 shadow-lg shadow-teal-900/30">
-                <BiUpload size={18} /> Upload Prescription
+              <Button variant='secondary'  size="lg" className="border border-accent">
+                <BiUpload size={18} /> <Link href={'/upload-rx'}>Upload Prescription</Link>
               </Button>
               <Button variant='primary' size="lg"  className="">
                 <BiShoppingBag size={18} /> Order Now

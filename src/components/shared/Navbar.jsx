@@ -1,16 +1,17 @@
 "use client";
 import { useState } from "react";
-import { Link, Button, Avatar } from "@heroui/react";
+import { Button, Avatar } from "@heroui/react";
 import { FiUpload, FiUser } from "react-icons/fi";
 import { useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import logo from '../../../public/logo.png'
+import Link from "next/link";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {data:session} = useSession()
   const user = session?.user
-  console.log(user);
+//   console.log(user);
 
   const navItems = [
     { href: "/", label: "Home" },
@@ -73,13 +74,13 @@ const Navbar = () => {
         <ul className="hidden items-center gap-4 md:flex">{navLinks}</ul>
 
         <div className="flex items-center gap-3">
-          <Button variant="secondary" size="sm"><FiUpload/> Upload RX</Button>
+          <Button variant="secondary" size="sm"><FiUpload/> <Link href="/upload-rx">Upload RX</Link></Button>
           {user? <Avatar size="sm">
         <Avatar.Image
           alt="Small Avatar"
-          src={user.image}
+          src={user?.image}
         />
-        <Avatar.Fallback>SM</Avatar.Fallback>
+        <Avatar.Fallback>{user?.name.split(' ').map(word => word[0]).join('').toUpperCase()}</Avatar.Fallback>
       </Avatar>:
           
           <Button size="sm"><FiUser/> Log In</Button>
