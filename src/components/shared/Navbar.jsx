@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Link, Button } from "@heroui/react";
+import { FiUpload, FiUser } from "react-icons/fi";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -64,8 +65,8 @@ const Navbar = () => {
         <ul className="hidden items-center gap-4 md:flex">{navLinks}</ul>
 
         <div className="space-x-3">
-          <Button variant="secondary">Uplaod RX</Button>
-          <Button>Log In</Button>
+          <Button variant="secondary" size="sm"><FiUpload/> Upload RX</Button>
+          <Button size="sm"><FiUser/> Log In</Button>
         </div>
       </header>
       {isMenuOpen && (

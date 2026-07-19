@@ -3,8 +3,9 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0F172A;
   --accent: #0D9488;
+  
 }
 
 @theme inline {
@@ -32,7 +33,7 @@ body {
     @apply max-w-7xl mx-auto px-4
   }
   .button--primary {
-    @apply bg-accent text-white
+    @apply bg-accent text-white 
   }
   .button--secondary {
     @apply bg-background border border-accent text-foreground
