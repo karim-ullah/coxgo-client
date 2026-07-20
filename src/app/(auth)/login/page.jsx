@@ -1,5 +1,5 @@
 "use client";
-import { signIn } from "@/lib/auth-client";
+import { authClient, signIn } from "@/lib/auth-client";
 import {
   Button,
   Description,
@@ -12,6 +12,8 @@ import {
   TextArea,
   TextField,
 } from "@heroui/react";
+import Link from "next/link";
+import { BsGoogle } from "react-icons/bs";
 const LoginPage = () => {
   const onSubmit = async(e) => {
     e.preventDefault();
@@ -32,6 +34,11 @@ const LoginPage = () => {
         alert(error.message)
     }
   };
+  const handleGoogle = async()=>{
+    await authClient.signIn.social({
+      provider: 'google'
+    })
+  }
   return (
     <div className="container flex items-center justify-center min-h-screen">
       <Form className="w-full max-w-96 border border-accent shadow-sm rounded-2xl p-6 shadow-sm" onSubmit={onSubmit}>
@@ -83,6 +90,14 @@ const LoginPage = () => {
             </Button>
           </Fieldset.Actions>
         </Fieldset>
+
+        <div className="mt-3 text-center">
+          <Button onClick={handleGoogle} className="w-full my-2" variant="tertiary">
+        <BsGoogle />
+        Sign in with Google
+      </Button>
+          <span className="text-sm">Not have an account? please <Link className="text-blue-400" href={'/register'}>Register</Link></span>
+        </div>
       </Form>
     </div>
   );

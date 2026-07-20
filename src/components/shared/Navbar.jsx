@@ -16,10 +16,9 @@ const Navbar = () => {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
+    { href: "/contact", label: "Contact" },
     { href: "/track-order", label: "Track Order" },
-    { href: "/Emergency", label: "Emergency" },
-    { href: "/Contact", label: "Contact" },
+    { href: "/emergency", label: "Emergency" },
   ];
 
   const navLinks = (
@@ -78,7 +77,7 @@ const Navbar = () => {
             <FiUpload /> <Link href="/upload-rx">Upload RX</Link>
           </Button>
           {user ? (
-            <Link href={`/dashboard/${user?.role === 'user' ? 'customer' : 'admin'}/overview`}>
+            <Link href={`/dashboard/${user?.role}/overview`}>
               <Avatar size="sm">
                 <Avatar.Image alt="Small Avatar" src={user?.image} />
                 <Avatar.Fallback>
@@ -92,7 +91,7 @@ const Navbar = () => {
             </Link>
           ) : (
             <Button size="sm">
-              <FiUser /> Log In
+              <FiUser /> <Link href={'/login'}>Log In</Link>
             </Button>
           )}
         </div>

@@ -14,24 +14,25 @@ import {
   TextArea,
   TextField,
 } from "@heroui/react";
+import Link from "next/link";
 import React, { useState } from "react";
 import { FiUser } from "react-icons/fi";
 
 const RegisterPage = () => {
   const [matched, setMatched] = useState();
-    const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const onSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
     const form = new FormData(e.target);
 
-    const image = form.get('image')
-    
+    const image = form.get("image");
+
     const formData = Object.fromEntries(form.entries());
 
-    const { name, phoneNumber, email,confirmPassword } = formData;
-    
-    const imageUrl = await uploadImage(image)
+    const { name, phoneNumber, email, confirmPassword } = formData;
+
+    const imageUrl = await uploadImage(image);
 
     const { data, error } = await signUp.email({
       name,
@@ -42,14 +43,13 @@ const RegisterPage = () => {
       callbackURL: "/",
     });
 
-    if(data){
-        alert('success')
-        setIsLoading(false)
-    }else{
-        alert(error.message)
-        setIsLoading(false)
+    if (data) {
+      alert("success");
+      setIsLoading(false);
+    } else {
+      alert(error.message);
+      setIsLoading(false);
     }
-
   };
   return (
     <div className="container flex items-center justify-center min-h-screen py-10">
@@ -175,13 +175,21 @@ const RegisterPage = () => {
           <Fieldset.Actions>
             <Button fullWidth type="submit">
               <>
-          {isLoading ? <Spinner color="current" size="sm" /> : <FiUser />}
-          {isLoading? 'Creating..' : 'Create Account'}
-          
-        </>
+                {isLoading ? <Spinner color="current" size="sm" /> : <FiUser />}
+                {isLoading ? "Creating.." : "Create Account"}
+              </>
             </Button>
           </Fieldset.Actions>
         </Fieldset>
+
+        <div className="mt-3 text-center">
+          <span className="text-sm">
+            Not have an account? please{" "}
+            <Link className="text-blue-400" href={"/login"}>
+              Login
+            </Link>
+          </span>
+        </div>
       </Form>
     </div>
   );

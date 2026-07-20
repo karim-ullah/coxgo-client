@@ -18,15 +18,14 @@ const Sidebar = () => {
   const customer = [
     { icon: BiHome, label: "Overview", href: "/dashboard/customer/overview" },
     { icon: FiPackage, label: "My Orders", href: "/dashboard/customer/orders" },
-    { icon: BiUpload, label: "Upload Prescription", href: "/dashboard/customer/upload" },
+    { icon: BiUpload, label: "Upload Prescription", href: "/upload-rx" },
     { icon: BiBell, label: "Notifications", href: "/dashboard/customer/notifications" },
     { icon: FiUser, label: "Profile", href: "/dashboard/customer/profile" },
   ];
   const admin = [
     { icon: FiBarChart2, label: "Overview", href: '/dashboard/admin/overview' },
+    { icon: FiFileText, label: "Prescriptions", href: '/dashboard/admin/prescriptions' },
     { icon: FiPackage, label: "Orders" , href: '/dashboard/admin/orders'},
-    { icon: FiFileText, label: "Prescriptions", href: '/dashboard/admin/Prescriptions' },
-    { icon: FiUsers, label: "Customers" , href: '/dashboard/admin/customers'},
   ];
 
   const sidebarItems = user?.role === 'user' ? customer : admin

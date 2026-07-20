@@ -1,6 +1,7 @@
 import { headers } from "next/headers"
 import { auth } from "../auth"
 import { baseUrl } from "./baseUrl"
+import { redirect } from "next/navigation"
 
 export const serverMutation = async(api,method, data)=>{
     const res = await fetch(`${baseUrl}${api}`, {
@@ -14,7 +15,7 @@ export const serverMutation = async(api,method, data)=>{
     return res.json()
 }
 
-export const serverFetch = async(api,query)=>{
+export const serverFetch = async(api,query = "")=>{
     const res = await fetch(`${baseUrl}${api}${query}`)
     return await res.json()
 }
@@ -26,3 +27,10 @@ export const getUser = async()=>{
 
     return session?.user
 }
+
+export const requireRole = async (role) => {
+  const user = await getUser();
+  if (user.role !== role) {
+    return redirect("/unauthorized");
+  }
+};

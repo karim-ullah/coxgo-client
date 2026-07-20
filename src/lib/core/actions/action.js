@@ -8,3 +8,5 @@ export const createPrescription = async(data)=>{
 export const chatMessage = async(data)=>{
     return serverMutation(`/api/chat`, 'POST', data)
 }
+
+
