@@ -4,14 +4,14 @@ import { Button, Avatar } from "@heroui/react";
 import { FiUpload, FiUser } from "react-icons/fi";
 import { useSession } from "@/lib/auth-client";
 import Image from "next/image";
-import logo from '../../../public/logo.png'
+import logo from "../../../public/logo.png";
 import Link from "next/link";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const {data:session} = useSession()
-  const user = session?.user
-//   console.log(user);
+  const { data: session } = useSession();
+  const user = session?.user;
+  //   console.log(user);
 
   const navItems = [
     { href: "/", label: "Home" },
@@ -74,17 +74,27 @@ const Navbar = () => {
         <ul className="hidden items-center gap-4 md:flex">{navLinks}</ul>
 
         <div className="flex items-center gap-3">
-          <Button variant="secondary" size="sm"><FiUpload/> <Link href="/upload-rx">Upload RX</Link></Button>
-          {user? <Avatar size="sm">
-        <Avatar.Image
-          alt="Small Avatar"
-          src={user?.image}
-        />
-        <Avatar.Fallback>{user?.name.split(' ').map(word => word[0]).join('').toUpperCase()}</Avatar.Fallback>
-      </Avatar>:
-          
-          <Button size="sm"><FiUser/> Log In</Button>
-          }
+          <Button variant="secondary" size="sm">
+            <FiUpload /> <Link href="/upload-rx">Upload RX</Link>
+          </Button>
+          {user ? (
+            <Link href={`/dashboard/${user?.role === 'user' ? 'customer' : 'admin'}/overview`}>
+              <Avatar size="sm">
+                <Avatar.Image alt="Small Avatar" src={user?.image} />
+                <Avatar.Fallback>
+                  {user?.name
+                    .split(" ")
+                    .map((word) => word[0])
+                    .join("")
+                    .toUpperCase()}
+                </Avatar.Fallback>
+              </Avatar>
+            </Link>
+          ) : (
+            <Button size="sm">
+              <FiUser /> Log In
+            </Button>
+          )}
         </div>
       </header>
       {isMenuOpen && (

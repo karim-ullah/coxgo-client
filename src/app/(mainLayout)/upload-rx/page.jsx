@@ -172,7 +172,7 @@ const UploadRxPage = () => {
                         name="image"
                         className={"col-span-2"}
                       >
-                        <Label className="text-foreground">Profile Image</Label>
+                        <Label className="text-foreground">Prescription Image</Label>
                         <input
                           id="image"
                           name="image"
@@ -200,7 +200,7 @@ const UploadRxPage = () => {
                         className={"col-span-2 w-full"}
                       >
                         <Label className="text-foreground">
-                          Additional Info
+                          Additional Info  (if nothing write 'NO')
                         </Label>
                         <TextArea placeholder="Any specific brand, quantity or special instructions..." />
 
