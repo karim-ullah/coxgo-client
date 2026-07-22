@@ -25,7 +25,7 @@ export default function ContactPage() {
       </div>
 
       <section className="py-16 bg-muted">
-        <div className="max-w-5xl mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-10">
+        <div className="container grid md:grid-cols-2 gap-10">
           <div>
             <h2
               className="text-2xl font-extrabold text-foreground mb-6"
@@ -90,7 +90,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl p-8 shadow-sm flex items-center justify-center">
+          <div className="rounded-2xl p-8 flex items-center justify-center">
             {sent ? (
               <div className="text-center py-8">
                 <BiCheckCircle
@@ -142,8 +142,9 @@ export default function ContactPage() {
                   <Input placeholder="Enter your name" />
                   <FieldError />
                 </TextField>
-                <TextField name="email" type="email">
-                  <Label className="text-foreground">Email (Optional)</Label>
+                <TextField isRequired name="email" type="email">
+
+                  <Label className="text-foreground">Email</Label>
                   <Input placeholder="karim@example.com" />
                   <FieldError />
                 </TextField>

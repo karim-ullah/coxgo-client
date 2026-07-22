@@ -16,6 +16,7 @@ import {
   TextField,
 } from "@heroui/react";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { BiCheckCircle, BiUpload } from "react-icons/bi";
 import { FiAlertTriangle } from "react-icons/fi";
 
@@ -56,7 +57,7 @@ const UploadRxPage = () => {
     console.log(res);
 
     if (res.success) {
-      alert("success");
+      toast.success("added success");
       setSubmitted(true);
     }
   };
@@ -76,12 +77,14 @@ const UploadRxPage = () => {
           </div>
 
           <section className="py-16 bg-background">
-            <div className="max-w-2xl mx-auto px-4 md:px-6">
+            <div className="container md:max-w-3xl">
               <div className="rounded-2xl border border-border p-8 shadow-sm">
                 <Form onSubmit={onSubmit} className="space-y-5">
                   <FieldGroup>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <TextField
+                      fullWidth
+                      className={'col-span-2 md:col-span-1'}
                         isRequired
                         name="name"
                         validate={(value) => {
@@ -92,11 +95,13 @@ const UploadRxPage = () => {
                         }}
                       >
                         <Label>Name</Label>
-                        <Input placeholder="John Doe" />
+                        <Input placeholder="Enter name" />
                         <FieldError />
                       </TextField>
 
                       <TextField
+                      fullWidth
+                      className={'col-span-2 md:col-span-1'}
                         isRequired
                         type="number"
                         name="phoneNumber"
@@ -127,9 +132,10 @@ const UploadRxPage = () => {
                       </TextField>
 
                       <Select
+                      fullWidth
                         isRequired
                         name="deliveryArea"
-                        className="col-span-2"
+                        className="col-span-2 md:col-span-1 w-full"
                         placeholder="Select one"
                       >
                         <Label>Delivery Area</Label>
@@ -170,7 +176,7 @@ const UploadRxPage = () => {
                       <TextField
                         isRequired
                         name="image"
-                        className={"col-span-2"}
+                        className={"col-span-2 md:col-span-1 w-full"}
                       >
                         <Label className="text-foreground">Prescription Image</Label>
                         <input
@@ -208,6 +214,8 @@ const UploadRxPage = () => {
                       </TextField>
 
                       <Select
+                      fullWidth
+                      className={'col-span-2 md:col-span-1'}
                         isRequired
                         name="preferredTime"
                         placeholder="Select one"
@@ -244,6 +252,8 @@ const UploadRxPage = () => {
                       </Select>
 
                       <Select
+                      fullWidth
+                      className={'col-span-2 md:col-span-1'}
                         name="payment"
                         isRequired
                         placeholder="Select one"

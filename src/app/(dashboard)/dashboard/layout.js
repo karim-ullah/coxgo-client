@@ -8,7 +8,7 @@ const DashboardLayout = ({ children }) => {
     <div className="flex min-h-screen">
       <Sidebar />
 
-      <div className="flex flex-col px-6 py-10 flex-1 overflow-scroll">
+      <div className="flex flex-col px-6 py-6 md:py-10 flex-1 overflow-scroll">
         <Header/>
       {children}
       </div>

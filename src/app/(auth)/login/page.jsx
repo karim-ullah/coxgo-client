@@ -13,6 +13,7 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import toast from "react-hot-toast";
 import { BsGoogle } from "react-icons/bs";
 const LoginPage = () => {
   const onSubmit = async(e) => {
@@ -29,15 +30,17 @@ const LoginPage = () => {
     })
 
     if(data){
-        alert('success')
+        toast.success('success')
     }else{
-        alert(error.message)
+        toast.error(error.message)
     }
   };
   const handleGoogle = async()=>{
     await authClient.signIn.social({
       provider: 'google'
     })
+
+    toast.success('Logged out')
   }
   return (
     <div className="container flex items-center justify-center min-h-screen">

@@ -5,16 +5,15 @@ import { FiZap } from "react-icons/fi";
 export default function AboutPage() {
   return (
     <div>
-      <div className="bg-gradient-to-br from-[#0f172a] to-[#134e4a] py-24 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className='flex items-center justify-center gap-2 font-mono text-sm'><BiBookOpen size={12} /> About Us</h2>
+      <div className="bg-gradient-to-br from-[#0f172a] to-[#134e4a] py-24 w-full">
+        <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mt-3" style={{ fontFamily: "var(--font-heading)" }}>Our Story</h1>
           <p className="text-slate-300 mt-4 text-lg leading-relaxed">Born from a simple need — reliable medicine delivery in Cox's Bazar.</p>
         </div>
       </div>
 
       <section className="py-20 bg-white">
-        <div className="container grid md:grid-cols-2 gap-16 items-center">
+        <div className="container grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className='flex items-center justify-center gap-2 font-mono text-sm'> <BiHeart size={12} /> Why We Started</h2>
             <h2 className="text-3xl font-extrabold text-foreground mb-5" style={{ fontFamily: "var(--font-heading)" }}>Healthcare Shouldn't Be Complicated</h2>
@@ -22,13 +21,13 @@ export default function AboutPage() {
             <p className="text-muted-foreground leading-relaxed mb-4">We built MediDeliverBD to ensure no family in Cox's Bazar ever faces that situation. By connecting licensed pharmacies with a reliable delivery network, we bring genuine medicines to your doorstep — any time, any area.</p>
             <p className="text-muted-foreground leading-relaxed">Today, we serve over 12,000 households across Cox's Bazar district, with 50+ partner pharmacies and a team of dedicated delivery riders who understand the urgency of healthcare.</p>
           </div>
-          <Image src="https://images.unsplash.com/photo-1631651365893-2b24fc27d657?w=600&h=450&fit=crop&auto=format"
+          <Image src="https://plus.unsplash.com/premium_photo-1661769786626-8025c37907ae?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           height={450} width={600}
             alt="Pharmacy team" className="rounded-2xl shadow-xl w-full object-cover h-[420px]" />
         </div>
       </section>
 
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-accent/10">
         <div className="container">
           <div className="grid md:grid-cols-3 gap-6">
             {[

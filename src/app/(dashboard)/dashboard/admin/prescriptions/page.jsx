@@ -4,6 +4,7 @@ import React from "react";
 import { BiDownload } from "react-icons/bi";
 import { BsEye } from "react-icons/bs";
 import { FiRefreshCcw } from "react-icons/fi";
+import { GrUpdate } from 'react-icons/gr';
 const PrescriptionsPage = async() => {
     const response = await getPrescriptions()
     const prescriptions = response.result
@@ -32,10 +33,10 @@ const PrescriptionsPage = async() => {
                       <span className="font-bold text-foreground">price: ${order.price}</span>
                       <div className="flex gap-2">
                         <Button variant="outline" size="sm">
-                          <BsEye size={13} /> View
+                           Approve
                         </Button>
                         <Button variant="outline" size="sm">
-                          <BiDownload size={13} /> Invoice
+                          <GrUpdate size={10} /> Update Price
                         </Button>
                         {order.status === "delivered" && (
                           <Button variant="secondary" size="sm">

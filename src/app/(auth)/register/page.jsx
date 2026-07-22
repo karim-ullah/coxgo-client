@@ -16,6 +16,7 @@ import {
 } from "@heroui/react";
 import Link from "next/link";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { FiUser } from "react-icons/fi";
 
 const RegisterPage = () => {
@@ -44,10 +45,10 @@ const RegisterPage = () => {
     });
 
     if (data) {
-      alert("success");
+      toast.success("success");
       setIsLoading(false);
     } else {
-      alert(error.message);
+      toast.error(error.message);
       setIsLoading(false);
     }
   };

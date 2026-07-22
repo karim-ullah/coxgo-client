@@ -11,11 +11,8 @@ const Footer = () => {
     const publicLinks = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
-    { label: "Services", path: "/services" },
-    { label: "Upload Prescription", path: "/upload" },
-    { label: "Track Order", path: "/track" },
+    { label: "Upload Prescription", path: "/upload-rx" },
     { label: "Emergency Delivery", path: "/emergency" },
-    { label: "FAQ", path: "/faq" },
     { label: "Contact", path: "/contact" },
   ];
     return (
@@ -49,7 +46,7 @@ const Footer = () => {
               {publicLinks.map(l => (
                 <li key={l.path}>
                   <button  className="text-sm text-slate-400 hover:text-teal-400 transition cursor-pointer">
-                    <Link href={'/'}>
+                    <Link href={l.path}>
                     {l.label}
                     </Link>
                   </button>

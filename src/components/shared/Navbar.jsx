@@ -19,6 +19,8 @@ const Navbar = () => {
     { href: "/contact", label: "Contact" },
     { href: "/track-order", label: "Track Order" },
     { href: "/emergency", label: "Emergency" },
+    { href: "/ai/product-description", label: "AI Copy" },
+    // { href: "/ai/recommendations", label: "AI Picks" },
   ];
 
   const navLinks = (

@@ -1,6 +1,7 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import FloatingChatWidget from "@/components/chat/FloatingChatWidget";
+import { Toaster } from "react-hot-toast";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -19,7 +20,7 @@ export default function RootLayout({ children }) {
       data-theme="light"
       className={`light ${plusJakartaSans.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children} <FloatingChatWidget/></body>
+      <body className="min-h-full flex flex-col">{children} <FloatingChatWidget/> <Toaster /></body>
     </html>
   );
 }

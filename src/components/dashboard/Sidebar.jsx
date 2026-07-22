@@ -19,6 +19,7 @@ const Sidebar = () => {
     { icon: BiHome, label: "Overview", href: "/dashboard/customer/overview" },
     { icon: FiPackage, label: "My Orders", href: "/dashboard/customer/orders" },
     { icon: BiUpload, label: "Upload Prescription", href: "/upload-rx" },
+    { icon: FiBarChart2, label: "AI Recommendations", href: "/ai/recommendations" },
     { icon: BiBell, label: "Notifications", href: "/dashboard/customer/notifications" },
     { icon: FiUser, label: "Profile", href: "/dashboard/customer/profile" },
   ];
@@ -26,9 +27,10 @@ const Sidebar = () => {
     { icon: FiBarChart2, label: "Overview", href: '/dashboard/admin/overview' },
     { icon: FiFileText, label: "Prescriptions", href: '/dashboard/admin/prescriptions' },
     { icon: FiPackage, label: "Orders" , href: '/dashboard/admin/orders'},
+    { icon: FiUser, label: "AI Copy", href: "/ai/product-description" },
   ];
 
-  const sidebarItems = user?.role === 'user' ? customer : admin
+  const sidebarItems = user?.role === 'customer' ? customer : admin
   //   w-64 bg-[#0f172a] text-slate-300 flex-col fixed left-0 top-0 bottom-0 z-30 hidden md:flex
 
   const handleLogOut = async()=>{
